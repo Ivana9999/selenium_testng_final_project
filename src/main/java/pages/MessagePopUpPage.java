@@ -1,2 +1,4 @@
-package pages;public class MessagePopUpPage {
+package pages;
+
+public class MessagePopUpPage {
 }
