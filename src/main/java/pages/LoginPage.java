@@ -19,4 +19,25 @@ public class LoginPage extends BasicPage{
     public WebElement getLoginButton () {
         return driver.findElement(By.className("v-btn__content"));
     }
+    public void clickOnLoginButton () {
+        getLoginButton().click();
+    }
+
+    public void clearPaswordAndEmailFields() {
+        getPasswordField().clear();
+        getEmailField().clear();
+    }
+
+    public void loginWithAdmincredentials () {
+            clearPaswordAndEmailFields();
+            getEmailField().sendKeys("admin@admin.com");
+            getPasswordField().sendKeys("12345");
+            clickOnLoginButton();
+    }
+    public void loginWithEmailAndPasword (String pasword, String email) {
+        clearPaswordAndEmailFields();
+        getEmailField().sendKeys(pasword);
+        getPasswordField().sendKeys(email);
+        clickOnLoginButton();
+    }
 }
