@@ -17,7 +17,7 @@ public class LoginPage extends BasicPage{
         return driver.findElement(By.id("password"));
     }
     public WebElement getLoginButton () {
-        return driver.findElement(By.className("v-btn__content"));
+        return driver.findElement(By.cssSelector("button[type='submit']"));
     }
     public void clickOnLoginButton () {
         getLoginButton().click();
@@ -36,8 +36,8 @@ public class LoginPage extends BasicPage{
     }
     public void loginWithEmailAndPasword (String pasword, String email) {
         clearPaswordAndEmailFields();
-        getEmailField().sendKeys(pasword);
-        getPasswordField().sendKeys(email);
+        getEmailField().sendKeys(email);
+        getPasswordField().sendKeys(pasword);
         clickOnLoginButton();
     }
 }
