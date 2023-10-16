@@ -34,7 +34,7 @@ public class LoginPage extends BasicPage{
             getPasswordField().sendKeys("12345");
             clickOnLoginButton();
     }
-    public void loginWithEmailAndPasword (String pasword, String email) {
+    public void loginWithEmailAndPasword (String email, String pasword) {
         clearPaswordAndEmailFields();
         getEmailField().sendKeys(email);
         getPasswordField().sendKeys(pasword);
