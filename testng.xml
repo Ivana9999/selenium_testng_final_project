@@ -1,0 +1,7 @@
+<suite name="Smoke Suite" verbose="1" >
+    <test name="Login Tests">
+        <classes>
+            <class name="tests.LoginTests"/>
+        </classes>
+    </test>
+</suite>
