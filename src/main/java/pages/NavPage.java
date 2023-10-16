@@ -44,6 +44,9 @@ public class NavPage extends BasicPage {
     public WebElement getLogoutButton() {
         return driver.findElement(By.cssSelector("button.btnLogout"));
     }
+    public WebElement getLanguagesButton () {
+        return driver.findElement(By.cssSelector("button.btnLocaleActivation"));
+    }
     public WebElement getENButtonFromLanguageDropDownMenu() {
         return driver.findElement(By.cssSelector("div.btnEN"));
     }
@@ -55,6 +58,15 @@ public class NavPage extends BasicPage {
     }
     public WebElement getCNButtonFromLanguageDropDownMenu() {
         return driver.findElement(By.cssSelector("div.btnCN"));
+    }
+    public void selectEnglishLanguageFromLanguagesDropDownMenu () {
+        getLanguagesButton().click();
+        getENButtonFromLanguageDropDownMenu().click();
+
+    }
+
+    public void clickOnLoginButton () {
+        getLoginButton().click();
     }
 
 }
