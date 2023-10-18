@@ -12,7 +12,6 @@ public class SignupPage extends BasicPage {
 
     public WebElement getFieldForNameInput() {
         return driver.findElement(By.id("name"));
-
     }
 
     public WebElement getFieldForEmailInput() {
@@ -29,5 +28,28 @@ public class SignupPage extends BasicPage {
 
     public WebElement getSignMeButton() {
         return driver.findElement(By.cssSelector("button.v-btn--is-elevated.secondary"));
+    }
+
+    public void clearInputs () {
+        getFieldForNameInput().clear();
+        getFieldForEmailInput().clear();
+        getFieldForPasswordInput().clear();
+        getFieldForConfirmPassword().clear();
+    }
+
+    public void signUpWithNameEmailAndPassword (String name, String email, String password) {
+        clearInputs();
+        getFieldForNameInput().sendKeys(name);
+        getFieldForEmailInput().sendKeys(email);
+        getFieldForPasswordInput().sendKeys(password);
+        getFieldForConfirmPassword().sendKeys(password);
+        getSignMeButton().click();
+    }
+    public WebElement getVerifyAccountPopUp () {
+        return driver.findElement(By.cssSelector(".v-card__title.headline.grey.lighten-2.black--text.dlgVerifyAccount"));
+    }
+    public void clickOnCloseButtonForVerifyAccountPopup () {
+        driver.findElement(By.cssSelector("button.btnClose.v-btn.v-btn--text.theme--light.v-size--default.primary--text")).click();
+
     }
 }
