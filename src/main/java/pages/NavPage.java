@@ -69,4 +69,8 @@ public class NavPage extends BasicPage {
         getLoginButton().click();
     }
 
+    public void clickOnLogoutButton () {
+        getLogoutButton().click();
+    }
+
 }

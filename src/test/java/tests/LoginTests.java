@@ -36,18 +36,17 @@ public class LoginTests extends BasicTest {
         Assert.assertEquals(driver.getCurrentUrl(), baseUrl + "/login");
     }
     @Test
-    public void login() {
+    public void login() throws InterruptedException {
         navPage.clickOnLoginButton();
         loginPage.loginWithAdmincredentials();
+        Thread.sleep(2000);
         Assert.assertEquals(driver.getCurrentUrl(), baseUrl + "/home");
     }
 
     @Test
-    public void logout() {
+    public void logout() throws InterruptedException {
         login();
-        if(navPage.elementExists(By.cssSelector("a.btnLogin[href='/login']"))) {
-            navPage.getLogoutButton().click();
-        }
+        navPage.clickOnLogoutButton();
     }
 
 }
