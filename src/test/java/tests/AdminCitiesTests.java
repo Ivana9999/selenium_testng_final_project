@@ -2,10 +2,11 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import retry.RetryAnalyzer;
 
 public class AdminCitiesTests extends BasicTest{
 
-    @Test
+    @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     public void VisitsTheAdminCitiesPageAndListCities () {
         navPage.clickOnLoginButton();
         loginPage.loginWithAdmincredentials();
@@ -13,7 +14,7 @@ public class AdminCitiesTests extends BasicTest{
         navPage.clickOnCitiesButton();
         Assert.assertEquals(driver.getCurrentUrl(),baseUrl + "/admin/cities");
     }
-    @Test
+    @Test(priority = 2, retryAnalyzer = RetryAnalyzer.class)
     public void ChecksInputTypesForCreateOrEditNewCity () {
         navPage.clickOnLoginButton();
         loginPage.loginWithAdmincredentials();
@@ -23,7 +24,7 @@ public class AdminCitiesTests extends BasicTest{
         citiesPage.waitForEditDialogOrNewItemDialogToBeVisible();
         Assert.assertEquals(citiesPage.getInputField().getAttribute("type"), "text");
     }
-  @Test
+    @Test(priority = 3, retryAnalyzer = RetryAnalyzer.class)
   public void createNewCity () {
       navPage.clickOnLoginButton();
       loginPage.loginWithAdmincredentials();
@@ -36,7 +37,7 @@ public class AdminCitiesTests extends BasicTest{
       messagePopUpPage.waitForSuccesfulPopUp();
       Assert.assertTrue(messagePopUpPage.getPopUpForSuccesfullyAddedCity().getText().contains("Saved successfully"));
   }
-  @Test
+    @Test(priority = 4, retryAnalyzer = RetryAnalyzer.class)
     public void editCity () {
         String oldCityName = "Ivana Ivkoov 's city";
         String newCityName = " Edited";
@@ -55,7 +56,7 @@ public class AdminCitiesTests extends BasicTest{
       Assert.assertTrue(messagePopUpPage.getPopUpForSuccesfullyAddedCity().getText().contains("Saved successfully"));
 
   }
-  @Test
+    @Test(priority = 5, retryAnalyzer = RetryAnalyzer.class)
     public void searchCity () throws InterruptedException {
       String cityName = "Ivana Ivkoov 's city Edited";
 
@@ -69,7 +70,7 @@ public class AdminCitiesTests extends BasicTest{
      Assert.assertEquals(citiesPage.getCellFromSpecificRow(0, 1).getText(), cityName);
 
   }
-  @Test
+    @Test(priority = 6, retryAnalyzer = RetryAnalyzer.class)
     public void deleteCity () throws InterruptedException {
       String cityName = "Ivana Ivkoov 's city Edited";
       navPage.clickOnLoginButton();

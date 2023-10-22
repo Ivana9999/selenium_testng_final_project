@@ -2,15 +2,16 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import retry.RetryAnalyzer;
 
 public class SignupTests extends BasicTest{
 
-    @Test
+    @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     public void visitsTheSignupPage () throws InterruptedException {
         navPage.clickOnSingUpButton();
         Assert.assertEquals(driver.getCurrentUrl(),baseUrl + "/signup");
     }
-    @Test
+    @Test(priority = 2, retryAnalyzer = RetryAnalyzer.class)
     public void checksInputTypes () {
         navPage.clickOnSingUpButton();
         Assert.assertEquals(signupPage.getFieldForEmailInput().getAttribute("type"), "email");
@@ -18,7 +19,7 @@ public class SignupTests extends BasicTest{
         Assert.assertEquals(signupPage.getFieldForConfirmPassword().getAttribute("type"), "password");
 
     }
-    @Test
+    @Test(priority = 3, retryAnalyzer = RetryAnalyzer.class)
     public void displaysErrorsWhenUserAlreadyExists () {
         navPage.clickOnSingUpButton();
         Assert.assertEquals(driver.getCurrentUrl(),baseUrl + "/signup");
@@ -27,7 +28,7 @@ public class SignupTests extends BasicTest{
         Assert.assertEquals(messagePopUpPage.getTextInsidePopUp(),"E-mail already exists");
         Assert.assertEquals(driver.getCurrentUrl(),baseUrl + "/signup");
     }
-    @Test
+    @Test(priority = 4, retryAnalyzer = RetryAnalyzer.class)
     public void signUp () throws InterruptedException {
         navPage.clickOnSingUpButton();
         Assert.assertEquals(driver.getCurrentUrl(),baseUrl + "/signup");
