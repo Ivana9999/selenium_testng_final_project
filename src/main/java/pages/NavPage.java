@@ -29,6 +29,9 @@ public class NavPage extends BasicPage {
     public WebElement getCitiesLinkFromAdminDropDownMenu() {
         return driver.findElement(By.cssSelector("a.btnAdminCities[href='/admin/cities']"));
     }
+    public WebElement getHeader () {
+        return driver.findElement(By.cssSelector("h1.display-2"));
+    }
 
     public WebElement getUsersLinkFromAdminDropDownMenu() {
         return driver.findElement(By.cssSelector("a.btnAdminUsers[href='/admin/users']"));
@@ -63,6 +66,10 @@ public class NavPage extends BasicPage {
         getLanguagesButton().click();
         getENButtonFromLanguageDropDownMenu().click();
 
+    }
+
+    public  void clickOnLanguageButton () {
+        getLanguagesButton().click();
     }
 
     public void clickOnLoginButton () {
