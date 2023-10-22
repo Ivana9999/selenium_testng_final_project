@@ -104,4 +104,16 @@ public class CitiesPage extends BasicPage {
     public void setSearchName(String cityName) {
         getInputField().sendKeys(cityName);
     }
+    public WebElement getDeleteCityPopUp () {
+        return driver.findElement(By.className("v-toolbar__content"));
+    }
+    public void waitForDeleteCityPopUp () {
+        wait
+                .withMessage("Delete City Pop up should be visible")
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className("v-toolbar__content")));
+
+    }
+    public WebElement getDeleteButtonFromPopUp () {
+       return driver.findElement(By.cssSelector("button.v-btn--text.red--text"));
+    }
 }
