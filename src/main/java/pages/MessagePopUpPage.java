@@ -17,6 +17,12 @@ public class MessagePopUpPage extends BasicPage{
                 .withMessage("Pop up should be visible")
                 .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.v-snack__content")));
     }
+    public void waitForSuccesfulPopUp () {
+        wait
+                .withMessage("Succesful pop up should be visible")
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".success .v-snack__content")));
+    }
+
     public WebElement getPopUp () {
         return driver.findElement(By.cssSelector("div.v-snack__content"));
     }
@@ -25,5 +31,7 @@ public class MessagePopUpPage extends BasicPage{
       List <WebElement> popUp = getPopUp().findElement(By.tagName("ul")).findElements(By.tagName("li"));
      return popUp.get(0).getText();
     }
-
+public WebElement getPopUpForSuccesfullyAddedCity () {
+        return driver.findElement(By.cssSelector(".success .v-snack__content"));
+}
 }
