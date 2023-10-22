@@ -76,5 +76,10 @@ public class NavPage extends BasicPage {
     public void clickOnSingUpButton () {
         getSignUpButton().click();;
     }
-
+public void clickOnAdminButton () {
+        getAdminButton().click();
+}
+public void clickOnCitiesButton () {
+        getCitiesLinkFromAdminDropDownMenu().click();
+}
 }
