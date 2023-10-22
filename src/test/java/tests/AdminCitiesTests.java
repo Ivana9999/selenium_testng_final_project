@@ -16,8 +16,6 @@ public class AdminCitiesTests extends BasicTest{
     }
     @Test(priority = 2, retryAnalyzer = RetryAnalyzer.class)
     public void ChecksInputTypesForCreateOrEditNewCity () {
-        navPage.clickOnLoginButton();
-        loginPage.loginWithAdmincredentials();
         navPage.clickOnAdminButton();
         navPage.clickOnCitiesButton();
         citiesPage.clickOnNewItemButton();
@@ -26,8 +24,6 @@ public class AdminCitiesTests extends BasicTest{
     }
     @Test(priority = 3, retryAnalyzer = RetryAnalyzer.class)
   public void createNewCity () {
-      navPage.clickOnLoginButton();
-      loginPage.loginWithAdmincredentials();
       navPage.clickOnAdminButton();
       navPage.clickOnCitiesButton();
       citiesPage.clickOnNewItemButton();
@@ -42,8 +38,6 @@ public class AdminCitiesTests extends BasicTest{
         String oldCityName = "Ivana Ivkoov 's city";
         String newCityName = " Edited";
 
-      navPage.clickOnLoginButton();
-      loginPage.loginWithAdmincredentials();
       navPage.clickOnAdminButton();
       navPage.clickOnCitiesButton();
       citiesPage.setSearchName(oldCityName);
@@ -60,8 +54,7 @@ public class AdminCitiesTests extends BasicTest{
     public void searchCity () throws InterruptedException {
       String cityName = "Ivana Ivkoov 's city Edited";
 
-      navPage.clickOnLoginButton();
-      loginPage.loginWithAdmincredentials();
+
       navPage.clickOnAdminButton();
       navPage.clickOnCitiesButton();
       citiesPage.setSearchName(cityName);
@@ -73,8 +66,7 @@ public class AdminCitiesTests extends BasicTest{
     @Test(priority = 6, retryAnalyzer = RetryAnalyzer.class)
     public void deleteCity () throws InterruptedException {
       String cityName = "Ivana Ivkoov 's city Edited";
-      navPage.clickOnLoginButton();
-      loginPage.loginWithAdmincredentials();
+
       navPage.clickOnAdminButton();
       navPage.clickOnCitiesButton();
       citiesPage.setSearchName(cityName);
